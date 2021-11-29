@@ -4,10 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    
+
+    <div class="container">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
+
+    <p id="result"></p>
+
+    <button id="play-again" onclick="location.reload()">Play Again?</button>
+
+    <div class="container">
+        <div>
+            <h2>Player</h2>
+            <p id="player-score">Score: 0</p>
+        </div>
+        <div>
+            <h2>Computer</h2>
+            <p id="computer-score">Score: 0</p>
+        </div>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>

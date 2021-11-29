@@ -1,5 +1,24 @@
 let playerScore = 0
 let computerScore = 0
+let playBtn = document.getElementById("play-again")
+let rock = document.getElementById("rock")
+let paper = document.getElementById("paper")
+let scissors = document.getElementById("scissors")
+let result = document.getElementById("result")
+let playerScoreElement = document.getElementById("player-score")
+let computerScoreElement = document.getElementById("computer-score")
+
+rock.addEventListener("click", function(){
+    playRound("rock")
+})
+
+paper.addEventListener("click", function(){
+    playRound("paper")
+})
+
+scissors.addEventListener("click", function(){
+    playRound("scissors")
+})
 
 
 function computerPlay(){
@@ -8,55 +27,50 @@ function computerPlay(){
     return rpc[Math.floor(Math.random() * 3)]
 }
 
-function playRound(playerSelection, computerSelection){
-    playerSelection = playerSelection.toLowerCase()
+function playRound(playerSelection){
+    computerSelection = computerPlay()
 
     if(playerSelection === computerSelection){
-        return "It's a tie"
-    }
-
-    //lose cases
-    if(playerSelection === "rock" && computerSelection === "paper"){
+        result.innerHTML = "It's a tie"
+    }else if(playerSelection === "rock" && computerSelection === "paper"){
         computerScore++
-        return "You Lose! Paper beats Rock"
-    }
-
-    if(playerSelection === "paper" && computerSelection === "scissors"){
+        result.innerHTML = "You Lose! Paper beats Rock"
+    }else if(playerSelection === "paper" && computerSelection === "scissors"){
         computerScore++
-        return "You Lose! Scissors beats Paper"
-    }
-
-    if(playerSelection === "scissors" && computerSelection === "rock"){
+        result.innerHTML = "You Lose! Scissors beats Paper"
+    }else if(playerSelection === "scissors" && computerSelection === "rock"){
         computerScore++
-        return "You Lose! Rock beats Scissors"
+        result.innerHTML = "You Lose! Rock beats Scissors"
+    }else if(playerSelection === "paper" && computerSelection === "rock"){
+        playerScore++
+        result.innerHTML = "You Win! Paper beats Rock"
+    }else if(playerSelection === "scissors" && computerSelection === "paper"){
+        playerScore++
+        result.innerHTML = "You Win! Scissors beats Paper"
+    }else if(playerSelection === "rock" && computerSelection === "scissors"){
+        playerScore++
+        result.innerHTML = "You Win! Rock beats Scissors"
     }
 
-    //win cases
-    if(playerSelection === "paper" && computerSelection === "rock"){
-        playerScore++
-        return "You Win! Paper beats Rock"
+    //update scores
+    playerScoreElement.innerHTML = "Score: " + playerScore
+    computerScoreElement.innerHTML = "Score: " + computerScore
+
+    //check if score is greater than 5
+    if(playerScore > 4){
+        result.innerHTML = "You Win!"
+        hideButtons()
     }
 
-    if(playerSelection === "scissors" && computerSelection === "paper"){
-        playerScore++
-        return "You Win! Scissors beats Paper"
-    }
-
-    if(playerSelection === "rock" && computerSelection === "scissors"){
-        playerScore++
-        return "You Win! Rock beats Scissors"
+    if(computerScore > 4){
+        result.innerHTML = "You Lose!"
+        hideButtons()
     }
 }
 
-function game(){
-    while(playerScore < 5 && computerScore < 5) {
-        let playerSelection = prompt("Rock, Paper, or Scissors?")
-        let computerSelection = computerPlay()
-        console.log("player: " + playerSelection + " computer: " + computerSelection + "\n",  playRound(playerSelection, computerSelection))
-        console.log("player score: " + playerScore)
-        console.log("computer score: " + computerScore)
-    }
+function hideButtons(){
+    rock.style.display = "none"
+    paper.style.display = "none"
+    scissors.style.display = "none"
+    playBtn.style.display = "block"
 }
-
-game()
-
