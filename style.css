@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,300&display=swap');
+
 body{
-    background: #212129;
+    font-family: 'Roboto', sans-serif;
+    background: #444140;
     padding: 0;
     margin: 0;
-    color: rgb(167, 174, 180);
+    color: #f7ebe8;
 }
 
 button{
@@ -13,7 +16,7 @@ button{
 }
 
 button:hover{
-    background: #4c5265;
+    background: #ffa987;
 }
 
 #play-again{
@@ -24,6 +27,10 @@ h1, h3, #result{
     text-align: center;
 }
 
+p{
+    font-size: 24px;
+}
+
 #result{
     height: 20px;
 }
@@ -31,11 +38,16 @@ h1, h3, #result{
 #play-again{
     margin: auto;
     padding: 10px;
-    font-size: 18px;
-    background-color: #212129;
-    color: rgb(167, 174, 180);
-    border: 2px solid rgb(167, 174, 180);
+    font-size: 24px;
+    background-color: #444140;
+    color: #e54b4b;
+    border: 2px solid #e54b4b;
     border-radius: 5px
+}
+
+#play-again:hover{
+    background-color: #e54b4b;
+    color: #f7ebe8;
 }
 
 .container{
@@ -44,12 +56,21 @@ h1, h3, #result{
 }
 
 .container div{
-    background: #4c5265;
-    color: azure;
+    background: #f7ebe8;
+    color: #1e1e24;
     width: 300px;
     margin: 20px;
     text-align: center;
     border-radius: 5px;
+}
+
+[src=""]{
+    visibility: hidden;
+}
+
+.hand-played{
+    width: 100px;
+    height: 100px;
 }
 
 

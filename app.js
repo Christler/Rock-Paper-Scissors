@@ -7,6 +7,8 @@ let scissors = document.getElementById("scissors")
 let result = document.getElementById("result")
 let playerScoreElement = document.getElementById("player-score")
 let computerScoreElement = document.getElementById("computer-score")
+let playerHand = document.getElementById("player-hand")
+let computerHand = document.getElementById("computer-hand")
 
 rock.addEventListener("click", function(){
     playRound("rock")
@@ -29,6 +31,10 @@ function computerPlay(){
 
 function playRound(playerSelection){
     computerSelection = computerPlay()
+
+    //call function to display played hand images
+    showPlayedHand(playerHand, playerSelection)
+    showPlayedHand(computerHand, computerSelection)
 
     if(playerSelection === computerSelection){
         result.innerHTML = "It's a tie"
@@ -66,6 +72,24 @@ function playRound(playerSelection){
         result.innerHTML = "You Lose!"
         hideButtons()
     }
+}
+
+function showPlayedHand(player, hand){
+    let image
+
+    switch(hand){
+        case "rock":
+            image = "images/rock.png"
+            break
+        case "paper":
+           image = "images/paper.png"
+           break
+        case "scissors":
+            image = "images/scissors.png"
+            break
+    }
+
+    player.src = image
 }
 
 function hideButtons(){
