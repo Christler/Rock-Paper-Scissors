@@ -1,3 +1,55 @@
+body{
+    background: #212129;
+    padding: 0;
+    margin: 0;
+    color: rgb(167, 174, 180);
+}
+
+button{
+    margin: 20px;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button:hover{
+    background: #4c5265;
+}
+
 #play-again{
     display: none;
 }
+
+h1, h3, #result{
+    text-align: center;
+}
+
+#result{
+    height: 20px;
+}
+
+#play-again{
+    margin: auto;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #212129;
+    color: rgb(167, 174, 180);
+    border: 2px solid rgb(167, 174, 180);
+    border-radius: 5px
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.container div{
+    background: #4c5265;
+    color: azure;
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+
